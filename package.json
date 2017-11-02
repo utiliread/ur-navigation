@@ -1,0 +1,17 @@
+{
+  "name": "ur-navigation",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "aurelia-framework": "^1.1.5",
+    "aurelia-router": "^1.4.0",
+    "ur-route-mapper": "utiliread/ur-route-mapper"
+  }
+}

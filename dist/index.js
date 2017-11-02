@@ -1,0 +1,8 @@
+import { PLATFORM } from 'aurelia-framework';
+export function configure(config) {
+    config.globalResources([
+        PLATFORM.moduleName('./nav-active'),
+        PLATFORM.moduleName('./nav-href'),
+        PLATFORM.moduleName('./nav-toggle')
+    ]);
+}
