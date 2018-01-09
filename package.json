@@ -15,6 +15,6 @@
   "dependencies": {
     "aurelia-framework": "^1.1.5",
     "aurelia-router": "^1.4.0",
-    "ur-route-mapper": "utiliread/ur-route-mapper"
+    "ur-route-mapper": "^1.0.0"
   }
 }
