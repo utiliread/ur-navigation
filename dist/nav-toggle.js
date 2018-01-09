@@ -8,29 +8,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { autoinject, bindable, bindingMode, customAttribute } from 'aurelia-framework';
-var NavToggle = /** @class */ (function () {
-    function NavToggle(element) {
+let NavToggle = class NavToggle {
+    constructor(element) {
         this.element = element;
         this.click = this.click.bind(this);
     }
-    NavToggle.prototype.attached = function () {
+    attached() {
         this.element.addEventListener('click', this.click);
-    };
-    NavToggle.prototype.detached = function () {
+    }
+    detached() {
         this.element.removeEventListener('click', this.click);
-    };
-    NavToggle.prototype.click = function () {
+    }
+    click() {
         this.active = !this.active;
-    };
-    __decorate([
-        bindable({ primaryProperty: true, defaultBindingMode: bindingMode.twoWay }),
-        __metadata("design:type", Boolean)
-    ], NavToggle.prototype, "active", void 0);
-    NavToggle = __decorate([
-        autoinject(),
-        customAttribute('nav-toggle'),
-        __metadata("design:paramtypes", [Element])
-    ], NavToggle);
-    return NavToggle;
-}());
+    }
+};
+__decorate([
+    bindable({ primaryProperty: true, defaultBindingMode: bindingMode.twoWay }),
+    __metadata("design:type", Boolean)
+], NavToggle.prototype, "active", void 0);
+NavToggle = __decorate([
+    autoinject(),
+    customAttribute('nav-toggle'),
+    __metadata("design:paramtypes", [Element])
+], NavToggle);
 export { NavToggle };

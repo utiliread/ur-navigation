@@ -8,12 +8,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { autoinject, bindable, bindingMode, customAttribute } from 'aurelia-framework';
-var NavActive = /** @class */ (function () {
-    function NavActive(element) {
+let NavActive = class NavActive {
+    constructor(element) {
         this.element = element;
         this.class = 'active';
     }
-    NavActive.prototype.changeHandler = function () {
+    changeHandler() {
         if (this.class) {
             if (this.active) {
                 if (!this.element.classList.contains(this.class)) {
@@ -26,20 +26,19 @@ var NavActive = /** @class */ (function () {
                 }
             }
         }
-    };
-    __decorate([
-        bindable({ changeHandler: 'changeHandler', primaryProperty: true, defaultBindingMode: bindingMode.twoWay }),
-        __metadata("design:type", Boolean)
-    ], NavActive.prototype, "active", void 0);
-    __decorate([
-        bindable({ changeHandler: 'changeHandler' }),
-        __metadata("design:type", Object)
-    ], NavActive.prototype, "class", void 0);
-    NavActive = __decorate([
-        autoinject(),
-        customAttribute('nav-active'),
-        __metadata("design:paramtypes", [Element])
-    ], NavActive);
-    return NavActive;
-}());
+    }
+};
+__decorate([
+    bindable({ changeHandler: 'changeHandler', primaryProperty: true, defaultBindingMode: bindingMode.twoWay }),
+    __metadata("design:type", Boolean)
+], NavActive.prototype, "active", void 0);
+__decorate([
+    bindable({ changeHandler: 'changeHandler' }),
+    __metadata("design:type", Object)
+], NavActive.prototype, "class", void 0);
+NavActive = __decorate([
+    autoinject(),
+    customAttribute('nav-active'),
+    __metadata("design:paramtypes", [Element])
+], NavActive);
 export { NavActive };

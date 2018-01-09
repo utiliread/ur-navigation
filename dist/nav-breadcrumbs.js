@@ -9,17 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Router } from 'aurelia-router';
 import { autoinject } from 'aurelia-framework';
-var NavBreadcrumbsCustomElement = /** @class */ (function () {
-    function NavBreadcrumbsCustomElement(router) {
+let NavBreadcrumbsCustomElement = class NavBreadcrumbsCustomElement {
+    constructor(router) {
         while (router.parent) {
             router = router.parent;
         }
         this.router = router;
     }
-    NavBreadcrumbsCustomElement = __decorate([
-        autoinject(),
-        __metadata("design:paramtypes", [Router])
-    ], NavBreadcrumbsCustomElement);
-    return NavBreadcrumbsCustomElement;
-}());
+};
+NavBreadcrumbsCustomElement = __decorate([
+    autoinject(),
+    __metadata("design:paramtypes", [Router])
+], NavBreadcrumbsCustomElement);
 export { NavBreadcrumbsCustomElement };
