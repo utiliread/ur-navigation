@@ -10,11 +10,15 @@
   "devDependencies": {
     "copyfiles": "^1.2.0",
     "rimraf": "^2.6.2",
-    "typescript": "^2.5.3"
-  },
-  "dependencies": {
+    "typescript": "^2.7.2",
     "aurelia-framework": "^1.1.5",
-    "aurelia-router": "^1.4.0",
-    "ur-route-mapper": "^1.0.0"
-  }
+    "aurelia-router": "^1.5.0",
+    "ur-route-mapper": "^1.0.2"
+  },
+  "peerDependencies": {
+    "aurelia-framework": "^1.1.5",
+    "aurelia-router": "^1.5.0",
+    "ur-route-mapper": "^1.0.2"
+  },
+  "dependencies": {}
 }
