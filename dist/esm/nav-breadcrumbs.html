@@ -1,0 +1,16 @@
+<template>
+    <require from="./instructions-filter"></require>
+    <nav>
+        <ol class="breadcrumb">
+            <li repeat.for="item of router.currentInstruction.getAllInstructions() | instructionsFilter"
+                class="${$last ? 'active' : ''}">
+                <template if.bind="!$last && item.href"><a href.bind="item.href">${item.title}</a></template>
+                <template if.bind="!$last && !item.href">${item.title}</template>
+                <template if.bind="$last"><strong>${item.title}</strong></template>
+            </li>
+            <li if.bind="router.isNavigating">
+                <span class="fa fa-spinner fa-pulse"></span>
+            </li>
+        </ol>
+    </nav>
+</template>

@@ -8,16 +8,16 @@ import { RouteMapper } from 'ur-route-mapper';
 @customAttribute('nav-href')
 export class NavHref {
     @bindable({ changeHandler: 'processChange', primaryProperty: true })
-    route: string;
+    route?: string;
 
     @bindable({ changeHandler: 'processChange' })
     params: any;
 
     @bindable({ defaultBindingMode: bindingMode.twoWay })
-    active: boolean;
+    active?: boolean;
 
     private routerIsProcessing = false;
-    private disposables: Disposable[];
+    private disposables!: Disposable[];
 
     constructor(private element: Element, private routeMapper: RouteMapper, private eventAggregator: EventAggregator, private router: AppRouter, private taskQueue: TaskQueue) {
         this.click = this.click.bind(this);

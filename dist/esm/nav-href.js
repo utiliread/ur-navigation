@@ -11,8 +11,8 @@ import { AppRouter } from 'aurelia-router';
 import { TaskQueue, autoinject, bindable, bindingMode, customAttribute } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { RouteMapper } from 'ur-route-mapper';
-let NavHref = class NavHref {
-    constructor(element, routeMapper, eventAggregator, router, taskQueue) {
+var NavHref = /** @class */ (function () {
+    function NavHref(element, routeMapper, eventAggregator, router, taskQueue) {
         this.element = element;
         this.routeMapper = routeMapper;
         this.eventAggregator = eventAggregator;
@@ -21,30 +21,32 @@ let NavHref = class NavHref {
         this.routerIsProcessing = false;
         this.click = this.click.bind(this);
     }
-    attached() {
+    NavHref.prototype.attached = function () {
+        var _this = this;
         this.params = this.params || {};
         this.routerNavigationSuccess({ instruction: this.router.currentInstruction });
         this.disposables = [
-            this.eventAggregator.subscribe('router:navigation:processing', () => this.routerIsProcessing = true),
+            this.eventAggregator.subscribe('router:navigation:processing', function () { return _this.routerIsProcessing = true; }),
             this.eventAggregator.subscribe('router:navigation:success', this.routerNavigationSuccess.bind(this)),
         ];
         this.element.addEventListener('click', this.click);
-    }
-    detached() {
+    };
+    NavHref.prototype.detached = function () {
         this.element.removeEventListener('click', this.click);
-        for (let disposable of this.disposables) {
+        for (var _i = 0, _a = this.disposables; _i < _a.length; _i++) {
+            var disposable = _a[_i];
             disposable.dispose();
         }
-    }
-    processChange() {
+    };
+    NavHref.prototype.processChange = function () {
         if (this.route && this.params) {
-            let href = this.routeMapper.generate(this.route, this.params);
+            var href = this.routeMapper.generate(this.route, this.params);
             this.element.setAttribute('href', href);
         }
-    }
-    activeChanged() {
+    };
+    NavHref.prototype.activeChanged = function () {
         if (this.active) {
-            let element = this.element;
+            var element = this.element;
             while (element) {
                 if (element && element.au && element.au['nav-active']) {
                     element.au['nav-active'].viewModel.active = true;
@@ -52,43 +54,45 @@ let NavHref = class NavHref {
                 element = element.parentElement;
             }
         }
-    }
-    click() {
+    };
+    NavHref.prototype.click = function () {
         if (!this.routerIsProcessing) {
             // The router is not processing because the route is already active.
             this.active = !this.active;
         }
         this.routerIsProcessing = false;
-    }
-    routerNavigationSuccess(event) {
-        let instructions = event.instruction.getAllInstructions();
-        let route = instructions.map(x => x.config.name).join('.');
-        let params = this.getParams(instructions);
+    };
+    NavHref.prototype.routerNavigationSuccess = function (event) {
+        var _this = this;
+        var instructions = event.instruction.getAllInstructions();
+        var route = instructions.map(function (x) { return x.config.name; }).join('.');
+        var params = this.getParams(instructions);
         if (this.routeMatch(route) && this.paramsMatch(params)) {
             // Delay activation so that all nav-hrefs can set to false before we start to activate again.
-            this.taskQueue.queueTask(() => {
-                this.active = true;
+            this.taskQueue.queueTask(function () {
+                _this.active = true;
             });
         }
         else {
             this.active = false;
         }
-    }
-    getParams(instructions) {
-        let params = {};
-        for (let instruction of instructions) {
-            for (let parameterName in instruction.params) {
+    };
+    NavHref.prototype.getParams = function (instructions) {
+        var params = {};
+        for (var _i = 0, instructions_1 = instructions; _i < instructions_1.length; _i++) {
+            var instruction = instructions_1[_i];
+            for (var parameterName in instruction.params) {
                 params[parameterName] = instruction.params[parameterName];
             }
         }
         return params;
-    }
-    routeMatch(route) {
+    };
+    NavHref.prototype.routeMatch = function (route) {
         return route === this.route || route.startsWith(this.route + '.');
-    }
-    paramsMatch(params) {
+    };
+    NavHref.prototype.paramsMatch = function (params) {
         if (this.params) {
-            for (let propertyName in this.params) {
+            for (var propertyName in this.params) {
                 if (propertyName in params) {
                     if (this.params[propertyName] === null && params[propertyName] === null) {
                         continue;
@@ -101,23 +105,25 @@ let NavHref = class NavHref {
             }
         }
         return true;
-    }
-};
-__decorate([
-    bindable({ changeHandler: 'processChange', primaryProperty: true }),
-    __metadata("design:type", String)
-], NavHref.prototype, "route", void 0);
-__decorate([
-    bindable({ changeHandler: 'processChange' }),
-    __metadata("design:type", Object)
-], NavHref.prototype, "params", void 0);
-__decorate([
-    bindable({ defaultBindingMode: bindingMode.twoWay }),
-    __metadata("design:type", Boolean)
-], NavHref.prototype, "active", void 0);
-NavHref = __decorate([
-    autoinject(),
-    customAttribute('nav-href'),
-    __metadata("design:paramtypes", [Element, RouteMapper, EventAggregator, AppRouter, TaskQueue])
-], NavHref);
+    };
+    __decorate([
+        bindable({ changeHandler: 'processChange', primaryProperty: true }),
+        __metadata("design:type", String)
+    ], NavHref.prototype, "route", void 0);
+    __decorate([
+        bindable({ changeHandler: 'processChange' }),
+        __metadata("design:type", Object)
+    ], NavHref.prototype, "params", void 0);
+    __decorate([
+        bindable({ defaultBindingMode: bindingMode.twoWay }),
+        __metadata("design:type", Boolean)
+    ], NavHref.prototype, "active", void 0);
+    NavHref = __decorate([
+        autoinject(),
+        customAttribute('nav-href'),
+        __metadata("design:paramtypes", [Element, RouteMapper, EventAggregator, AppRouter, TaskQueue])
+    ], NavHref);
+    return NavHref;
+}());
 export { NavHref };
+//# sourceMappingURL=nav-href.js.map

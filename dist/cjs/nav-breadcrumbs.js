@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,18 +8,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Router } from 'aurelia-router';
-import { autoinject } from 'aurelia-framework';
-let NavBreadcrumbsCustomElement = class NavBreadcrumbsCustomElement {
-    constructor(router) {
+Object.defineProperty(exports, "__esModule", { value: true });
+var aurelia_router_1 = require("aurelia-router");
+var aurelia_framework_1 = require("aurelia-framework");
+var NavBreadcrumbsCustomElement = /** @class */ (function () {
+    function NavBreadcrumbsCustomElement(router) {
         while (router.parent) {
             router = router.parent;
         }
         this.router = router;
     }
-};
-NavBreadcrumbsCustomElement = __decorate([
-    autoinject(),
-    __metadata("design:paramtypes", [Router])
-], NavBreadcrumbsCustomElement);
-export { NavBreadcrumbsCustomElement };
+    NavBreadcrumbsCustomElement = __decorate([
+        aurelia_framework_1.autoinject(),
+        __metadata("design:paramtypes", [aurelia_router_1.Router])
+    ], NavBreadcrumbsCustomElement);
+    return NavBreadcrumbsCustomElement;
+}());
+exports.NavBreadcrumbsCustomElement = NavBreadcrumbsCustomElement;
+//# sourceMappingURL=nav-breadcrumbs.js.map

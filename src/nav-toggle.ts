@@ -4,7 +4,7 @@ import { autoinject, bindable, bindingMode, customAttribute } from 'aurelia-fram
 @customAttribute('nav-toggle')
 export class NavToggle {
     @bindable({ primaryProperty: true, defaultBindingMode: bindingMode.twoWay })
-    active: boolean;
+    active!: boolean;
 
     constructor(private element: Element) {
         this.click = this.click.bind(this);

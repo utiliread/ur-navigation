@@ -4,7 +4,7 @@ import { autoinject, bindable, bindingMode, customAttribute } from 'aurelia-fram
 @customAttribute('nav-active')
 export class NavActive {
     @bindable({ changeHandler: 'changeHandler', primaryProperty: true, defaultBindingMode: bindingMode.twoWay })
-    active: boolean;
+    active!: boolean;
 
     @bindable({ changeHandler: 'changeHandler' })
     class = 'active';

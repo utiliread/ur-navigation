@@ -7,3 +7,4 @@ export function configure(config) {
         PLATFORM.moduleName('./nav-toggle')
     ]);
 }
+//# sourceMappingURL=index.js.map

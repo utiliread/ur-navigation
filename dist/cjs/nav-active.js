@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { autoinject, bindable, bindingMode, customAttribute } from 'aurelia-framework';
-let NavActive = class NavActive {
-    constructor(element) {
+Object.defineProperty(exports, "__esModule", { value: true });
+var aurelia_framework_1 = require("aurelia-framework");
+var NavActive = /** @class */ (function () {
+    function NavActive(element) {
         this.element = element;
         this.class = 'active';
     }
-    changeHandler() {
+    NavActive.prototype.changeHandler = function () {
         if (this.class) {
             if (this.active) {
                 if (!this.element.classList.contains(this.class)) {
@@ -26,19 +28,21 @@ let NavActive = class NavActive {
                 }
             }
         }
-    }
-};
-__decorate([
-    bindable({ changeHandler: 'changeHandler', primaryProperty: true, defaultBindingMode: bindingMode.twoWay }),
-    __metadata("design:type", Boolean)
-], NavActive.prototype, "active", void 0);
-__decorate([
-    bindable({ changeHandler: 'changeHandler' }),
-    __metadata("design:type", Object)
-], NavActive.prototype, "class", void 0);
-NavActive = __decorate([
-    autoinject(),
-    customAttribute('nav-active'),
-    __metadata("design:paramtypes", [Element])
-], NavActive);
-export { NavActive };
+    };
+    __decorate([
+        aurelia_framework_1.bindable({ changeHandler: 'changeHandler', primaryProperty: true, defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+        __metadata("design:type", Boolean)
+    ], NavActive.prototype, "active", void 0);
+    __decorate([
+        aurelia_framework_1.bindable({ changeHandler: 'changeHandler' }),
+        __metadata("design:type", Object)
+    ], NavActive.prototype, "class", void 0);
+    NavActive = __decorate([
+        aurelia_framework_1.autoinject(),
+        aurelia_framework_1.customAttribute('nav-active'),
+        __metadata("design:paramtypes", [Element])
+    ], NavActive);
+    return NavActive;
+}());
+exports.NavActive = NavActive;
+//# sourceMappingURL=nav-active.js.map

@@ -8,9 +8,9 @@ export declare class NavHref {
     private eventAggregator;
     private router;
     private taskQueue;
-    route: string;
+    route?: string;
     params: any;
-    active: boolean;
+    active?: boolean;
     private routerIsProcessing;
     private disposables;
     constructor(element: Element, routeMapper: RouteMapper, eventAggregator: EventAggregator, router: AppRouter, taskQueue: TaskQueue);
