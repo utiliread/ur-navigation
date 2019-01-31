@@ -18,9 +18,9 @@ export declare class NavHref {
     detached(): void;
     processChange(): void;
     activeChanged(): void;
-    private click();
-    private routerNavigationSuccess(event);
-    private getParams(instructions);
-    private routeMatch(route);
-    private paramsMatch(params);
+    private click;
+    private routerNavigationSuccess;
+    private getParams;
+    private routeMatch;
+    private paramsMatch;
 }

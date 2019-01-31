@@ -4,5 +4,5 @@ export declare class InstructionsFilterValueConverter {
         href: string | undefined;
         title: string;
     } | undefined)[];
-    private getHref(navigationInstruction);
+    private getHref;
 }

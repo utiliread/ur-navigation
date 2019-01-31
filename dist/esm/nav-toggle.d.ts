@@ -4,5 +4,5 @@ export declare class NavToggle {
     constructor(element: Element);
     attached(): void;
     detached(): void;
-    private click();
+    private click;
 }
