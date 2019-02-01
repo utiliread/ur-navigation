@@ -18,7 +18,9 @@ export class NavToggle {
         this.element.removeEventListener('click', this.click);
     }
 
-    private click() {
+    private click(event: Event) {
+        event.preventDefault();
+        
         this.active = !this.active;
     }
 }

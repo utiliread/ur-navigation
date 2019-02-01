@@ -19,7 +19,8 @@ var NavToggle = /** @class */ (function () {
     NavToggle.prototype.detached = function () {
         this.element.removeEventListener('click', this.click);
     };
-    NavToggle.prototype.click = function () {
+    NavToggle.prototype.click = function (event) {
+        event.preventDefault();
         this.active = !this.active;
     };
     __decorate([
