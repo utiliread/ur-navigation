@@ -4,9 +4,9 @@
         <ol class="breadcrumb">
             <li repeat.for="item of router.currentInstruction.getAllInstructions() | instructionsFilter"
                 class="breadcrumb-item ${$last ? 'active' : ''}">
-                <template if.bind="!$last && item.href"><a href.bind="item.href">${item.title}</a></template>
-                <template if.bind="!$last && !item.href">${item.title}</template>
-                <template if.bind="$last"><strong>${item.title}</strong></template>
+                <template if.bind="!$last && item.href"><a href.bind="item.href">${router.transformTitle(item.title)}</a></template>
+                <template if.bind="!$last && !item.href">${router.transformTitle(item.title)}</template>
+                <template if.bind="$last"><strong>${router.transformTitle(item.title)}</strong></template>
             </li>
             <li if.bind="router.isNavigating">
                 <span class="fa fa-spinner fa-pulse"></span>
