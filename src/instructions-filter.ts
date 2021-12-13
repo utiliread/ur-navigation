@@ -37,7 +37,7 @@ export class InstructionsFilterValueConverter {
             if (configs.length > 1) {
                 // There are multiple configs with the same name
                 for (const config of configs) {
-                    const href = tryGenerate(router, config);
+                    const href = tryGenerate(router, config, params);
                     if (href) {
                         return href;
                     }
@@ -48,9 +48,9 @@ export class InstructionsFilterValueConverter {
     }
 }
 
-function tryGenerate(router: Router, config: RouteConfig) {
+function tryGenerate(router: Router, config: RouteConfig, params: any) {
     try {
-        return router.generate(config);
+        return router.generate(config, params);
     }
     catch {
         return undefined;

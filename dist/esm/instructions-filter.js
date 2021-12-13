@@ -35,7 +35,7 @@ var InstructionsFilterValueConverter = /** @class */ (function () {
                 // There are multiple configs with the same name
                 for (var _i = 0, configs_1 = configs; _i < configs_1.length; _i++) {
                     var config = configs_1[_i];
-                    var href = tryGenerate(router, config);
+                    var href = tryGenerate(router, config, params);
                     if (href) {
                         return href;
                     }
@@ -47,9 +47,9 @@ var InstructionsFilterValueConverter = /** @class */ (function () {
     return InstructionsFilterValueConverter;
 }());
 export { InstructionsFilterValueConverter };
-function tryGenerate(router, config) {
+function tryGenerate(router, config, params) {
     try {
-        return router.generate(config);
+        return router.generate(config, params);
     }
     catch (_a) {
         return undefined;
