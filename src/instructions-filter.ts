@@ -1,4 +1,4 @@
-import { NavigationInstruction } from 'aurelia-router';
+import { NavigationInstruction, RouteConfig, Router } from 'aurelia-router';
 
 export class InstructionsFilterValueConverter {
     toView(navigationInstructions: NavigationInstruction[]) {
@@ -18,16 +18,41 @@ export class InstructionsFilterValueConverter {
     }
 
     private getHref(navigationInstruction: NavigationInstruction) {
-        let params = JSON.parse(JSON.stringify(navigationInstruction.params));
-
+        const params = JSON.parse(JSON.stringify(navigationInstruction.params));
         if ('childRoute' in params) {
             delete params['childRoute'];
         }
 
-        if (!navigationInstruction.config.name) {
+        const router = navigationInstruction.router;
+        const routeName = navigationInstruction.config.name;
+        if (!routeName) {
             return;
         }
 
-        return navigationInstruction.router.generate(navigationInstruction.config.name, params);
+        try {
+            return router.generate(routeName, params);
+        }
+        catch (error) {
+            const configs = router.routes.filter(x => x.name === routeName);
+            if (configs.length > 1) {
+                // There are multiple configs with the same name
+                for (const config of configs) {
+                    const href = tryGenerate(router, config);
+                    if (href) {
+                        return href;
+                    }
+                }
+            }
+            throw error;
+        }
+    }
+}
+
+function tryGenerate(router: Router, config: RouteConfig) {
+    try {
+        return router.generate(config);
+    }
+    catch {
+        return undefined;
     }
 }

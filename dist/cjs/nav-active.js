@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NavActive = void 0;
 var aurelia_framework_1 = require("aurelia-framework");
 var NavActive = /** @class */ (function () {
     function NavActive(element) {
@@ -30,16 +31,16 @@ var NavActive = /** @class */ (function () {
         }
     };
     __decorate([
-        aurelia_framework_1.bindable({ changeHandler: 'changeHandler', primaryProperty: true, defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+        (0, aurelia_framework_1.bindable)({ changeHandler: 'changeHandler', primaryProperty: true, defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
         __metadata("design:type", Boolean)
     ], NavActive.prototype, "active", void 0);
     __decorate([
-        aurelia_framework_1.bindable({ changeHandler: 'changeHandler' }),
+        (0, aurelia_framework_1.bindable)({ changeHandler: 'changeHandler' }),
         __metadata("design:type", Object)
     ], NavActive.prototype, "class", void 0);
     NavActive = __decorate([
-        aurelia_framework_1.autoinject(),
-        aurelia_framework_1.customAttribute('nav-active'),
+        (0, aurelia_framework_1.autoinject)(),
+        (0, aurelia_framework_1.customAttribute)('nav-active'),
         __metadata("design:paramtypes", [Element])
     ], NavActive);
     return NavActive;

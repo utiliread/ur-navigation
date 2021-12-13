@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NavBreadcrumbsCustomElement = void 0;
 var aurelia_router_1 = require("aurelia-router");
 var aurelia_framework_1 = require("aurelia-framework");
 var NavBreadcrumbsCustomElement = /** @class */ (function () {
@@ -19,7 +20,7 @@ var NavBreadcrumbsCustomElement = /** @class */ (function () {
         this.router = router;
     }
     NavBreadcrumbsCustomElement = __decorate([
-        aurelia_framework_1.autoinject(),
+        (0, aurelia_framework_1.autoinject)(),
         __metadata("design:paramtypes", [aurelia_router_1.Router])
     ], NavBreadcrumbsCustomElement);
     return NavBreadcrumbsCustomElement;

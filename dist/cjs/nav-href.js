@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NavHref = void 0;
 var aurelia_router_1 = require("aurelia-router");
 var aurelia_framework_1 = require("aurelia-framework");
 var aurelia_event_aggregator_1 = require("aurelia-event-aggregator");
@@ -109,20 +110,20 @@ var NavHref = /** @class */ (function () {
         return true;
     };
     __decorate([
-        aurelia_framework_1.bindable({ changeHandler: 'processChange', primaryProperty: true }),
+        (0, aurelia_framework_1.bindable)({ changeHandler: 'processChange', primaryProperty: true }),
         __metadata("design:type", String)
     ], NavHref.prototype, "route", void 0);
     __decorate([
-        aurelia_framework_1.bindable({ changeHandler: 'processChange' }),
+        (0, aurelia_framework_1.bindable)({ changeHandler: 'processChange' }),
         __metadata("design:type", Object)
     ], NavHref.prototype, "params", void 0);
     __decorate([
-        aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+        (0, aurelia_framework_1.bindable)({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
         __metadata("design:type", Boolean)
     ], NavHref.prototype, "active", void 0);
     NavHref = __decorate([
-        aurelia_framework_1.autoinject(),
-        aurelia_framework_1.customAttribute('nav-href'),
+        (0, aurelia_framework_1.autoinject)(),
+        (0, aurelia_framework_1.customAttribute)('nav-href'),
         __metadata("design:paramtypes", [Element, ur_route_mapper_1.RouteMapper, aurelia_event_aggregator_1.EventAggregator, aurelia_router_1.AppRouter, aurelia_framework_1.TaskQueue])
     ], NavHref);
     return NavHref;

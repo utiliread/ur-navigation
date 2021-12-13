@@ -21,12 +21,38 @@ var InstructionsFilterValueConverter = /** @class */ (function () {
         if ('childRoute' in params) {
             delete params['childRoute'];
         }
-        if (!navigationInstruction.config.name) {
+        var router = navigationInstruction.router;
+        var routeName = navigationInstruction.config.name;
+        if (!routeName) {
             return;
         }
-        return navigationInstruction.router.generate(navigationInstruction.config.name, params);
+        try {
+            return router.generate(routeName, params);
+        }
+        catch (error) {
+            var configs = router.routes.filter(function (x) { return x.name === routeName; });
+            if (configs.length > 1) {
+                // There are multiple configs with the same name
+                for (var _i = 0, configs_1 = configs; _i < configs_1.length; _i++) {
+                    var config = configs_1[_i];
+                    var href = tryGenerate(router, config);
+                    if (href) {
+                        return href;
+                    }
+                }
+            }
+            throw error;
+        }
     };
     return InstructionsFilterValueConverter;
 }());
 export { InstructionsFilterValueConverter };
+function tryGenerate(router, config) {
+    try {
+        return router.generate(config);
+    }
+    catch (_a) {
+        return undefined;
+    }
+}
 //# sourceMappingURL=instructions-filter.js.map

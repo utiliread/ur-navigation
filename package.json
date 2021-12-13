@@ -13,7 +13,7 @@
     "aurelia-router": "^1.7.1",
     "copyfiles": "^2.1.1",
     "rimraf": "^3.0.0",
-    "typescript": "^3.7.2",
+    "typescript": "^4.5.3",
     "ur-route-mapper": "^1.0.5"
   },
   "peerDependencies": {

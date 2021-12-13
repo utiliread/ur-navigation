@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NavToggle = void 0;
 var aurelia_framework_1 = require("aurelia-framework");
 var NavToggle = /** @class */ (function () {
     function NavToggle(element) {
@@ -26,12 +27,12 @@ var NavToggle = /** @class */ (function () {
         this.active = !this.active;
     };
     __decorate([
-        aurelia_framework_1.bindable({ primaryProperty: true, defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+        (0, aurelia_framework_1.bindable)({ primaryProperty: true, defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
         __metadata("design:type", Boolean)
     ], NavToggle.prototype, "active", void 0);
     NavToggle = __decorate([
-        aurelia_framework_1.autoinject(),
-        aurelia_framework_1.customAttribute('nav-toggle'),
+        (0, aurelia_framework_1.autoinject)(),
+        (0, aurelia_framework_1.customAttribute)('nav-toggle'),
         __metadata("design:paramtypes", [Element])
     ], NavToggle);
     return NavToggle;
